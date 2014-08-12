@@ -32,18 +32,20 @@ public class Preferences {
 	}
 
 	private class PreferencseState {
-		private Preference lastPreference;
+		private Preference lastEvaluatedPreference;
 
 		PreferencseState(Preference lastPreference) {
-			this.lastPreference = lastPreference;
+			this.lastEvaluatedPreference = lastPreference;
 		}
 
 		public Human nextPartner() {
-			int index = preferenceList.indexOf(lastPreference) + 1;
+			int index = preferenceList.indexOf(lastEvaluatedPreference) + 1;
 			if (index < preferenceList.size()) {
-				this.lastPreference = preferenceList.get(index);
+				Preference p = this.lastEvaluatedPreference;
+				this.lastEvaluatedPreference = preferenceList.get(index);
+				return p.getHuman();
 			}
-			return lastPreference.getHuman();
+			return lastEvaluatedPreference.getHuman();
 		}
 
 	}
