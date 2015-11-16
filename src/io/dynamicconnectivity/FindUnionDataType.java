@@ -1,7 +1,5 @@
 package io.dynamicconnectivity;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -36,10 +34,26 @@ public class FindUnionDataType {
 		fu.union(0, 5);
 		fu.union(1, 9);
 		fu.union(10, 9);
-		fu.union(10, 9);fu.union(11, 9);fu.union(12, 9);fu.union(13, 9);
-		fu.union(14, 5);fu.union(15, 5);fu.union(16, 5);fu.union(17, 5);fu.union(18, 5);
-		fu.union(19, 10);fu.union(20, 10);fu.union(21, 10);fu.union(22, 10);fu.union(23, 10);
-		fu.union(24, 4);fu.union(25, 4);fu.union(26, 4);fu.union(27, 4);fu.union(28, 4);fu.union(29, 4);
+		fu.union(10, 9);
+		fu.union(11, 9);
+		fu.union(12, 9);
+		fu.union(13, 9);
+		fu.union(14, 5);
+		fu.union(15, 5);
+		fu.union(16, 5);
+		fu.union(17, 5);
+		fu.union(18, 5);
+		fu.union(19, 10);
+		fu.union(20, 10);
+		fu.union(21, 10);
+		fu.union(22, 10);
+		fu.union(23, 10);
+		fu.union(24, 4);
+		fu.union(25, 4);
+		fu.union(26, 4);
+		fu.union(27, 4);
+		fu.union(28, 4);
+		fu.union(29, 4);
 		System.out.println(fu.graph.containers);
 
 		long end = System.nanoTime();
