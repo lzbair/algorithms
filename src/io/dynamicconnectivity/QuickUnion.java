@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class QuickUnion {
 
-	private int[] id;
+	protected int[] id;
 
 	public QuickUnion(int N) {
 		this.id = new int[N];
 		for (int i = 0; i < id.length; i++) {
-			id[i] = i;
+			join(i, i);
 		}
 	}
 
@@ -18,7 +18,16 @@ public class QuickUnion {
 	}
 
 	public void union(int p, int q) {
-		id[root(p)] = root(q);
+		int rp = root(p);
+		int rq = root(q);
+		if(rp == rq){
+			return;
+		}
+		join(rp, rq);
+	}
+
+	protected void join(int rp, int rq) {
+		id[rp] = rq;
 	}
 
 	private int root(int p) {
