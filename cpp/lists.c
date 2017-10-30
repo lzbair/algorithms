@@ -1,11 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-
-struct LinkedList {
-  void* head;
-  LinkedList* tail;
-};
 
 LinkedList* prepend(void* head, LinkedList* tail){
 	LinkedList* list = malloc(sizeof(LinkedList));
@@ -15,13 +9,32 @@ LinkedList* prepend(void* head, LinkedList* tail){
 }
 
 void* get(int index, LinkedList* list){
-    LinkedList* current = list;
-    int i;
-    for(i = 0; i < index; i++){
-        current = (*list).tail;
-    }
-    return (*current).head;
+	if(index == 0) return (*list).head;
+	return get(--index, (*list).tail);
 }
 
+int length(LinkedList* list){
+	if(list == NULL) return 0;
+	return 1 + length((*list).tail);
+}
+
+void put(void* element, LinkedList** list, int position){
+	if(position == 0) {
+		LinkedList* newList = malloc(sizeof(LinkedList));
+		(*newList).head = element;
+		(*newList).tail = *list;
+		*list = newList;
+	}else {
+		put(element, &((*list)->tail), --position);
+	}
+}
+
+void delete(LinkedList** list, int position){
+	if(position == 0) {
+		*list = (*list)->tail;
+	}else {
+		delete(&((*list)->tail), --position);
+	}
+}
 
 
