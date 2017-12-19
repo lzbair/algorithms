@@ -37,4 +37,12 @@ void delete(LinkedList** list, int position){
 	}
 }
 
+void* fromEnd(int position, LinkedList* list){
+	int size = length(list);
+	if(position < 0 || position > size - 1 ) {
+		return NULL;
+	}
+	return get(size - position - 1, list);
+}
+
 

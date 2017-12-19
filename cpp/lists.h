@@ -10,3 +10,4 @@ void* get(int index, LinkedList* list);
 int length(LinkedList* list);
 void put(void* element, LinkedList** list, int position);
 void delete(LinkedList** list, int position);
+void* fromEnd(int position, LinkedList* list);
