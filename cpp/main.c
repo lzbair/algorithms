@@ -21,13 +21,16 @@ int main(){
 	LinkedList* list = prepend(&head, tail);
 	put(&other, &list, 2);
 	
-		printf("list --> "); print(list);
+	printf("list --> "); print(list);
 	
 	int* value = (int*)get(2, list);
 	printf("get(2, list) --> %d\n", *value);
 	
-	int* endValue = (int*)fromEnd(1, list);
+    int* endValue = (int*)fromEnd(1, list);
 	printf("fromEnd(1, list) --> %d\n", *endValue);
+	
+	printf("optimized_ fromEnd(1, list) --> %d\n", (*(int*)optimized_fromEnd(1, &list)));
+	
 	
 	printf("length(list) --> %d\n", length(list));
 	delete(&list, 1);

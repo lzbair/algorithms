@@ -45,4 +45,28 @@ void* fromEnd(int position, LinkedList* list){
 	return get(size - position - 1, list);
 }
 
+LinkedList* track(LinkedList* list, LinkedList* tracker){
+	if(list == NULL){
+		return tracker;
+	}else {
+		track((*list).tail, (*tracker).tail);
+	}
+}
+
+LinkedList* subList(int from, LinkedList* list){
+	if(from == 0){
+		return list;
+	}else {
+		subList(--from, (*list).tail);
+	}
+}
+
+
+void* optimized_fromEnd(int position, LinkedList** list){
+	LinkedList* sub = subList(++position, *list);
+
+	LinkedList* result = track(sub, *list);
+	return (*result).head;
+}
+
 
