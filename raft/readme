@@ -1,0 +1,25 @@
+Given:
+S = {p1, p2 ...pn} (System s mades of n processes)
+S takes an input IN, and it's supposed to return a value OUT.
+
+Constraint: any pi can fail or - more generally - may produce unreliable results.
+
+Problem: how to to make S reliable (fault-tolerant) even if some of its members could not?
+
+Solution: Consensus Algorithms.
+Examples: Paxos, Raft (these examples are based on "Replicated state machine" approach)
+
+
+Replicated state machine:
+for each process pi {
+  create replicats of pi {
+    let Rpi is a replicat of pi
+	Rpi has a state-machine
+	Rpi has a consensus-module
+	Rpi has a command-log where input/request are stored
+	consensus-module communicates with the consensus-modules on other replicats to ensure that every command-log are eventaully the same.
+
+	Once command-logs are properly replicated, each state-machine (of Rpi) executes commands in the log.
+
+  }
+}
